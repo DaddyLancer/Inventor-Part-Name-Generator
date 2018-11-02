@@ -30,6 +30,7 @@ Partial Class Form1
         Me.TextBox3 = New System.Windows.Forms.TextBox()
         Me.cmbMaterial = New System.Windows.Forms.ComboBox()
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.VScrollBar1 = New System.Windows.Forms.VScrollBar()
         Me.SuspendLayout()
         '
         'TextBox1
@@ -95,11 +96,19 @@ Partial Class Form1
         Me.Label3.TabIndex = 6
         Me.Label3.Text = "Material Selection"
         '
+        'VScrollBar1
+        '
+        Me.VScrollBar1.Location = New System.Drawing.Point(178, 320)
+        Me.VScrollBar1.Name = "VScrollBar1"
+        Me.VScrollBar1.Size = New System.Drawing.Size(17, 80)
+        Me.VScrollBar1.TabIndex = 7
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.VScrollBar1)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.cmbMaterial)
         Me.Controls.Add(Me.TextBox3)
@@ -121,4 +130,5 @@ Partial Class Form1
     Friend WithEvents TextBox3 As TextBox
     Friend WithEvents cmbMaterial As ComboBox
     Friend WithEvents Label3 As Label
+    Friend WithEvents VScrollBar1 As VScrollBar
 End Class
