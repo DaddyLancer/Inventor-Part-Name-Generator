@@ -120,16 +120,20 @@
   <data name="TextBox2.Text" xml:space="preserve">
     <value>Custom Formatting
 
-To input a custom format you can use the following parameters:
-%CLASS% - Classification / Type.
-%CLASSNUM% - Class / Type number.
-%MATERIAL% - Material Selected.
-%NAME% - Name of the part.
+To input a custom format you can use the following parameters.
+The parameters are case insensitive.
+%CLASS%
+%CLASSNUM%
+%EXTRA%
+%MANUFACTURER%
+%MATERIAL%
+%NAME%
+%SIZE%
 
-example:
-[%CLASS% %CLASSNUM%] - %NAME% (%MATERIAL%)
+Example
+[%Class% %ClassNum%] - %Manufacturer% %Name% (%Size%)
 
-That could output:
-[DIN 471] - Låsering (Fjedderstål)</value>
+That would generate the following output:
+[DIN 471] - Seeger Bore Lock (A20)</value>
   </data>
 </root>
