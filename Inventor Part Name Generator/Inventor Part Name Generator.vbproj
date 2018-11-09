@@ -109,10 +109,22 @@
       <DependentUpon>frmGenerator.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmHotkeys.Designer.vb">
+      <DependentUpon>frmHotkeys.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmHotkeys.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmModify.Designer.vb">
       <DependentUpon>frmModify.vb</DependentUpon>
     </Compile>
     <Compile Include="frmModify.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPreferences.Designer.vb">
+      <DependentUpon>frmPreferences.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmPreferences.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmSaveFormat.Designer.vb">
@@ -147,8 +159,14 @@
     <EmbeddedResource Include="frmGenerator.resx">
       <DependentUpon>frmGenerator.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmHotkeys.resx">
+      <DependentUpon>frmHotkeys.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmModify.resx">
       <DependentUpon>frmModify.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPreferences.resx">
+      <DependentUpon>frmPreferences.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSaveFormat.resx">
       <DependentUpon>frmSaveFormat.vb</DependentUpon>

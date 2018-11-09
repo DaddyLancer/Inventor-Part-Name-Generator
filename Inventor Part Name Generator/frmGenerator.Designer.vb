@@ -46,7 +46,9 @@ Partial Class frmGenerator
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.cmbCustom = New System.Windows.Forms.GroupBox()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.cmbExtra = New System.Windows.Forms.ComboBox()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
@@ -54,6 +56,8 @@ Partial Class frmGenerator
         Me.ManageSavedDataToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FormatsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SavedStandardsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GenerationLogsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.HotkeysToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PreferencesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -65,10 +69,12 @@ Partial Class frmGenerator
         Me.FeedbackToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
-        Me.GroupBox2.SuspendLayout()
+        Me.cmbCustom.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -181,7 +187,7 @@ Partial Class frmGenerator
         '
         Me.btnGenerate.Location = New System.Drawing.Point(680, 295)
         Me.btnGenerate.Name = "btnGenerate"
-        Me.btnGenerate.Size = New System.Drawing.Size(120, 24)
+        Me.btnGenerate.Size = New System.Drawing.Size(120, 41)
         Me.btnGenerate.TabIndex = 14
         Me.btnGenerate.Text = "Generate"
         Me.btnGenerate.UseVisualStyleBackColor = True
@@ -313,32 +319,50 @@ Partial Class frmGenerator
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Formatting"
         '
-        'GroupBox2
+        'cmbCustom
         '
-        Me.GroupBox2.Controls.Add(Me.DateTimePicker1)
-        Me.GroupBox2.Controls.Add(Me.Label2)
-        Me.GroupBox2.Controls.Add(Me.Label6)
-        Me.GroupBox2.Controls.Add(Me.cmbMaterial)
-        Me.GroupBox2.Controls.Add(Me.Label8)
-        Me.GroupBox2.Controls.Add(Me.Label3)
-        Me.GroupBox2.Controls.Add(Me.cmbSize)
-        Me.GroupBox2.Controls.Add(Me.cmbTypeNum)
-        Me.GroupBox2.Controls.Add(Me.Label7)
-        Me.GroupBox2.Controls.Add(Me.Label4)
-        Me.GroupBox2.Controls.Add(Me.cmbManufacturer)
-        Me.GroupBox2.Controls.Add(Me.cmbClass)
-        Me.GroupBox2.Controls.Add(Me.Label5)
-        Me.GroupBox2.Controls.Add(Me.txtName)
-        Me.GroupBox2.Location = New System.Drawing.Point(12, 27)
-        Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(270, 300)
-        Me.GroupBox2.TabIndex = 28
-        Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "Part Information"
+        Me.cmbCustom.Controls.Add(Me.Label6)
+        Me.cmbCustom.Controls.Add(Me.cmbMaterial)
+        Me.cmbCustom.Controls.Add(Me.Label8)
+        Me.cmbCustom.Controls.Add(Me.Label3)
+        Me.cmbCustom.Controls.Add(Me.cmbSize)
+        Me.cmbCustom.Controls.Add(Me.cmbTypeNum)
+        Me.cmbCustom.Controls.Add(Me.Label7)
+        Me.cmbCustom.Controls.Add(Me.Label4)
+        Me.cmbCustom.Controls.Add(Me.cmbManufacturer)
+        Me.cmbCustom.Controls.Add(Me.cmbClass)
+        Me.cmbCustom.Controls.Add(Me.Label5)
+        Me.cmbCustom.Controls.Add(Me.txtName)
+        Me.cmbCustom.Location = New System.Drawing.Point(12, 27)
+        Me.cmbCustom.Name = "cmbCustom"
+        Me.cmbCustom.Size = New System.Drawing.Size(270, 264)
+        Me.cmbCustom.TabIndex = 28
+        Me.cmbCustom.TabStop = False
+        Me.cmbCustom.Text = "Part Information"
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Location = New System.Drawing.Point(18, 295)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(99, 13)
+        Me.Label11.TabIndex = 23
+        Me.Label11.Text = "Extra (Custom Info):"
+        '
+        'cmbExtra
+        '
+        Me.cmbExtra.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cmbExtra.FormattingEnabled = True
+        Me.cmbExtra.Items.AddRange(New Object() {"N/A", "471", "472", "6799"})
+        Me.cmbExtra.Location = New System.Drawing.Point(21, 311)
+        Me.cmbExtra.Name = "cmbExtra"
+        Me.cmbExtra.Size = New System.Drawing.Size(251, 21)
+        Me.cmbExtra.TabIndex = 22
         '
         'DateTimePicker1
         '
-        Me.DateTimePicker1.Location = New System.Drawing.Point(9, 272)
+        Me.DateTimePicker1.Location = New System.Drawing.Point(288, 312)
         Me.DateTimePicker1.Name = "DateTimePicker1"
         Me.DateTimePicker1.Size = New System.Drawing.Size(251, 20)
         Me.DateTimePicker1.TabIndex = 21
@@ -346,7 +370,7 @@ Partial Class frmGenerator
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(6, 256)
+        Me.Label2.Location = New System.Drawing.Point(291, 295)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(33, 13)
         Me.Label2.TabIndex = 20
@@ -370,7 +394,7 @@ Partial Class frmGenerator
         '
         'ManageSavedDataToolStripMenuItem
         '
-        Me.ManageSavedDataToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FormatsToolStripMenuItem, Me.SavedStandardsToolStripMenuItem})
+        Me.ManageSavedDataToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FormatsToolStripMenuItem, Me.SavedStandardsToolStripMenuItem, Me.GenerationLogsToolStripMenuItem, Me.HotkeysToolStripMenuItem})
         Me.ManageSavedDataToolStripMenuItem.Name = "ManageSavedDataToolStripMenuItem"
         Me.ManageSavedDataToolStripMenuItem.Size = New System.Drawing.Size(183, 22)
         Me.ManageSavedDataToolStripMenuItem.Text = "Manage"
@@ -379,15 +403,29 @@ Partial Class frmGenerator
         '
         Me.FormatsToolStripMenuItem.Name = "FormatsToolStripMenuItem"
         Me.FormatsToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.F), System.Windows.Forms.Keys)
-        Me.FormatsToolStripMenuItem.Size = New System.Drawing.Size(204, 22)
+        Me.FormatsToolStripMenuItem.Size = New System.Drawing.Size(205, 22)
         Me.FormatsToolStripMenuItem.Text = "Formats..."
         '
         'SavedStandardsToolStripMenuItem
         '
         Me.SavedStandardsToolStripMenuItem.Name = "SavedStandardsToolStripMenuItem"
         Me.SavedStandardsToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.S), System.Windows.Forms.Keys)
-        Me.SavedStandardsToolStripMenuItem.Size = New System.Drawing.Size(204, 22)
+        Me.SavedStandardsToolStripMenuItem.Size = New System.Drawing.Size(205, 22)
         Me.SavedStandardsToolStripMenuItem.Text = "Saved standards..."
+        '
+        'GenerationLogsToolStripMenuItem
+        '
+        Me.GenerationLogsToolStripMenuItem.Name = "GenerationLogsToolStripMenuItem"
+        Me.GenerationLogsToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.L), System.Windows.Forms.Keys)
+        Me.GenerationLogsToolStripMenuItem.Size = New System.Drawing.Size(205, 22)
+        Me.GenerationLogsToolStripMenuItem.Text = "Generation Logs..."
+        '
+        'HotkeysToolStripMenuItem
+        '
+        Me.HotkeysToolStripMenuItem.Name = "HotkeysToolStripMenuItem"
+        Me.HotkeysToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.H), System.Windows.Forms.Keys)
+        Me.HotkeysToolStripMenuItem.Size = New System.Drawing.Size(205, 22)
+        Me.HotkeysToolStripMenuItem.Text = "Hotkeys..."
         '
         'PreferencesToolStripMenuItem
         '
@@ -458,17 +496,42 @@ Partial Class frmGenerator
         Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(194, 22)
         Me.AboutToolStripMenuItem.Text = "About"
         '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(569, 313)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 31
+        Me.Button1.Text = "testLoad"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(569, 286)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(75, 23)
+        Me.Button2.TabIndex = 32
+        Me.Button2.Text = "testAdd"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
         'frmGenerator
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(812, 337)
-        Me.Controls.Add(Me.GroupBox2)
+        Me.ClientSize = New System.Drawing.Size(812, 343)
+        Me.Controls.Add(Me.Button2)
+        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.Label11)
+        Me.Controls.Add(Me.cmbCustom)
+        Me.Controls.Add(Me.cmbExtra)
+        Me.Controls.Add(Me.DateTimePicker1)
         Me.Controls.Add(Me.GroupBox1)
+        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.btnGenerate)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.txtOutput)
         Me.Controls.Add(Me.MenuStrip1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "frmGenerator"
         Me.Text = "Part Name Generator - Andi Rosenhave"
@@ -478,8 +541,8 @@ Partial Class frmGenerator
         Me.Panel2.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
-        Me.GroupBox2.ResumeLayout(False)
-        Me.GroupBox2.PerformLayout()
+        Me.cmbCustom.ResumeLayout(False)
+        Me.cmbCustom.PerformLayout()
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         Me.ResumeLayout(False)
@@ -511,7 +574,7 @@ Partial Class frmGenerator
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Panel2 As Panel
     Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents GroupBox2 As GroupBox
+    Friend WithEvents cmbCustom As GroupBox
     Friend WithEvents MenuStrip1 As MenuStrip
     Friend WithEvents FileToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ManageSavedDataToolStripMenuItem As ToolStripMenuItem
@@ -530,4 +593,10 @@ Partial Class frmGenerator
     Friend WithEvents AboutToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents DateTimePicker1 As DateTimePicker
     Friend WithEvents Label2 As Label
+    Friend WithEvents Label11 As Label
+    Friend WithEvents cmbExtra As ComboBox
+    Friend WithEvents GenerationLogsToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents HotkeysToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents Button1 As Button
+    Friend WithEvents Button2 As Button
 End Class
