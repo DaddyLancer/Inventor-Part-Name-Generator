@@ -64,6 +64,9 @@
   <PropertyGroup>
     <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\TagIcon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -90,6 +93,15 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classtype.vb" />
+    <Compile Include="CSize.vb" />
+    <Compile Include="CustomFormat.vb" />
+    <Compile Include="Form1.Designer.vb">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmAbout.Designer.vb">
       <DependentUpon>frmAbout.vb</DependentUpon>
     </Compile>
@@ -100,6 +112,12 @@
       <DependentUpon>frmFormatHelp.vb</DependentUpon>
     </Compile>
     <Compile Include="frmFormatHelp.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmFormattings.Designer.vb">
+      <DependentUpon>frmFormattings.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmFormattings.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmGenerator.vb">
@@ -133,11 +151,14 @@
     <Compile Include="frmSaveFormat.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Manufacturer.vb" />
+    <Compile Include="Material.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
     </Compile>
+    <Compile Include="My Project\PredefinedPart.vb" />
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -148,13 +169,28 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="SavedFormats.vb" />
+    <Compile Include="Sizetype.vb" />
+    <Compile Include="SourcePanel.Designer.vb">
+      <DependentUpon>SourcePanel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SourcePanel.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AllSources.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAbout.resx">
       <DependentUpon>frmAbout.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmFormatHelp.resx">
       <DependentUpon>frmFormatHelp.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmFormattings.resx">
+      <DependentUpon>frmFormattings.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmGenerator.resx">
       <DependentUpon>frmGenerator.vb</DependentUpon>
@@ -176,6 +212,9 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SourcePanel.resx">
+      <DependentUpon>SourcePanel.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -205,6 +244,141 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\SavedFormats.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ASX_Copy_grey_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ASX_Run_blue_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ASX_Run_grey_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Copy_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DeleteListItem_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DownloadFolder_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Edit_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Eraser_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Export_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ExportFile_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FolderOpen_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FolderOpen_grey_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Import_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ImportFile_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NewItem_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NewRecording_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OpenFile_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OpenfileDialog_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OpenFolder_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Output_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Refresh_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Refresh_grey_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Run_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Save_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Save_grey_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Settings_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Settings_Inverse_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SettingsOutline_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ShutDown_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\StatusRun_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\StatusRun_cyan_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\StatusRun_grey_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Document_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NewFile_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ClearDictionary_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ClearCollection_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CleanData_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DeleteTable_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DeleteDatabase_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DeleteColumn_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Input_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LabelIcon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TagIcon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add_thin_10x_16x.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

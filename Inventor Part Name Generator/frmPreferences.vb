@@ -3,10 +3,7 @@
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         Now = DateTime.Now
-
-
         stripTime.Text = Now.ToString(My.Settings.TimeFormat)
-
     End Sub
 
     Private Sub btnApply_Click(sender As Object, e As EventArgs) Handles btnApply.Click

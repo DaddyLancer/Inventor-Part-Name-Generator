@@ -22,6 +22,7 @@ Partial Class frmGenerator
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.txtOutput = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtFormat = New System.Windows.Forms.TextBox()
@@ -47,6 +48,14 @@ Partial Class frmGenerator
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.cmbCustom = New System.Windows.Forms.GroupBox()
+        Me.btnAddSize = New System.Windows.Forms.Button()
+        Me.btnAddManufacturer = New System.Windows.Forms.Button()
+        Me.btnAddClassID = New System.Windows.Forms.Button()
+        Me.btnAddClass = New System.Windows.Forms.Button()
+        Me.btnAddMaterial = New System.Windows.Forms.Button()
+        Me.cmbPredefined = New System.Windows.Forms.ComboBox()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.btnAddPredefined = New System.Windows.Forms.Button()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.cmbExtra = New System.Windows.Forms.ComboBox()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
@@ -69,20 +78,24 @@ Partial Class frmGenerator
         Me.FeedbackToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.chkAutomatic = New System.Windows.Forms.CheckBox()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.cmbCustom.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
+        Me.Panel3.SuspendLayout()
         Me.SuspendLayout()
         '
         'txtOutput
         '
+        Me.txtOutput.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtOutput.Location = New System.Drawing.Point(294, 260)
         Me.txtOutput.Name = "txtOutput"
-        Me.txtOutput.Size = New System.Drawing.Size(506, 20)
+        Me.txtOutput.Size = New System.Drawing.Size(410, 20)
         Me.txtOutput.TabIndex = 0
         '
         'Label1
@@ -100,7 +113,7 @@ Partial Class frmGenerator
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtFormat.Location = New System.Drawing.Point(6, 19)
         Me.txtFormat.Name = "txtFormat"
-        Me.txtFormat.Size = New System.Drawing.Size(380, 20)
+        Me.txtFormat.Size = New System.Drawing.Size(284, 20)
         Me.txtFormat.TabIndex = 4
         Me.txtFormat.Text = "[%CLASS% %CLASSNUM%] - %NAME% (%MATERIAL%)"
         '
@@ -110,15 +123,15 @@ Partial Class frmGenerator
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cmbMaterial.FormattingEnabled = True
         Me.cmbMaterial.Items.AddRange(New Object() {"N/A", "Aluminum", "Steel", "Stainless Steel", "Spring Steel", "Cast Iron"})
-        Me.cmbMaterial.Location = New System.Drawing.Point(9, 72)
+        Me.cmbMaterial.Location = New System.Drawing.Point(9, 124)
         Me.cmbMaterial.Name = "cmbMaterial"
-        Me.cmbMaterial.Size = New System.Drawing.Size(251, 21)
+        Me.cmbMaterial.Size = New System.Drawing.Size(234, 21)
         Me.cmbMaterial.TabIndex = 5
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(6, 56)
+        Me.Label3.Location = New System.Drawing.Point(6, 108)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(47, 13)
         Me.Label3.TabIndex = 6
@@ -127,7 +140,7 @@ Partial Class frmGenerator
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(6, 136)
+        Me.Label4.Location = New System.Drawing.Point(6, 188)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(110, 13)
         Me.Label4.TabIndex = 8
@@ -139,15 +152,15 @@ Partial Class frmGenerator
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cmbTypeNum.FormattingEnabled = True
         Me.cmbTypeNum.Items.AddRange(New Object() {"N/A", "471", "472", "6799"})
-        Me.cmbTypeNum.Location = New System.Drawing.Point(9, 152)
+        Me.cmbTypeNum.Location = New System.Drawing.Point(9, 204)
         Me.cmbTypeNum.Name = "cmbTypeNum"
-        Me.cmbTypeNum.Size = New System.Drawing.Size(251, 21)
+        Me.cmbTypeNum.Size = New System.Drawing.Size(234, 21)
         Me.cmbTypeNum.TabIndex = 7
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(6, 96)
+        Me.Label5.Location = New System.Drawing.Point(6, 148)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(70, 13)
         Me.Label5.TabIndex = 10
@@ -159,9 +172,9 @@ Partial Class frmGenerator
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cmbClass.FormattingEnabled = True
         Me.cmbClass.Items.AddRange(New Object() {"N/A", "DIN", "ISO", "ANSI"})
-        Me.cmbClass.Location = New System.Drawing.Point(9, 112)
+        Me.cmbClass.Location = New System.Drawing.Point(9, 164)
         Me.cmbClass.Name = "cmbClass"
-        Me.cmbClass.Size = New System.Drawing.Size(251, 21)
+        Me.cmbClass.Size = New System.Drawing.Size(234, 21)
         Me.cmbClass.TabIndex = 9
         '
         'Label6
@@ -177,17 +190,19 @@ Partial Class frmGenerator
         '
         Me.txtName.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtName.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtName.Location = New System.Drawing.Point(9, 32)
         Me.txtName.Name = "txtName"
-        Me.txtName.Size = New System.Drawing.Size(251, 20)
+        Me.txtName.Size = New System.Drawing.Size(251, 22)
         Me.txtName.TabIndex = 13
         Me.txtName.Text = "Seeger Låsering"
         '
         'btnGenerate
         '
-        Me.btnGenerate.Location = New System.Drawing.Point(680, 295)
+        Me.btnGenerate.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnGenerate.Location = New System.Drawing.Point(584, 286)
         Me.btnGenerate.Name = "btnGenerate"
-        Me.btnGenerate.Size = New System.Drawing.Size(120, 41)
+        Me.btnGenerate.Size = New System.Drawing.Size(120, 34)
         Me.btnGenerate.TabIndex = 14
         Me.btnGenerate.Text = "Generate"
         Me.btnGenerate.UseVisualStyleBackColor = True
@@ -195,7 +210,7 @@ Partial Class frmGenerator
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(6, 176)
+        Me.Label7.Location = New System.Drawing.Point(6, 228)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(73, 13)
         Me.Label7.TabIndex = 16
@@ -207,15 +222,15 @@ Partial Class frmGenerator
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cmbManufacturer.FormattingEnabled = True
         Me.cmbManufacturer.Items.AddRange(New Object() {"N/A", "Seeger", "AlfaLaval", "Brd. Klee"})
-        Me.cmbManufacturer.Location = New System.Drawing.Point(9, 192)
+        Me.cmbManufacturer.Location = New System.Drawing.Point(9, 244)
         Me.cmbManufacturer.Name = "cmbManufacturer"
-        Me.cmbManufacturer.Size = New System.Drawing.Size(251, 21)
+        Me.cmbManufacturer.Size = New System.Drawing.Size(234, 21)
         Me.cmbManufacturer.TabIndex = 15
         '
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(6, 216)
+        Me.Label8.Location = New System.Drawing.Point(6, 268)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(30, 13)
         Me.Label8.TabIndex = 18
@@ -227,15 +242,15 @@ Partial Class frmGenerator
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cmbSize.FormattingEnabled = True
         Me.cmbSize.Items.AddRange(New Object() {"N/A", "471", "472", "6799"})
-        Me.cmbSize.Location = New System.Drawing.Point(9, 232)
+        Me.cmbSize.Location = New System.Drawing.Point(9, 284)
         Me.cmbSize.Name = "cmbSize"
-        Me.cmbSize.Size = New System.Drawing.Size(251, 21)
+        Me.cmbSize.Size = New System.Drawing.Size(234, 21)
         Me.cmbSize.TabIndex = 17
         '
         'btnSaveFormat
         '
         Me.btnSaveFormat.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnSaveFormat.Location = New System.Drawing.Point(392, 18)
+        Me.btnSaveFormat.Location = New System.Drawing.Point(296, 18)
         Me.btnSaveFormat.Name = "btnSaveFormat"
         Me.btnSaveFormat.Size = New System.Drawing.Size(120, 23)
         Me.btnSaveFormat.TabIndex = 19
@@ -250,7 +265,7 @@ Partial Class frmGenerator
         Me.lstFormats.FormattingEnabled = True
         Me.lstFormats.Location = New System.Drawing.Point(6, 16)
         Me.lstFormats.Name = "lstFormats"
-        Me.lstFormats.Size = New System.Drawing.Size(405, 147)
+        Me.lstFormats.Size = New System.Drawing.Size(309, 147)
         Me.lstFormats.TabIndex = 20
         '
         'lstParameters
@@ -303,25 +318,35 @@ Partial Class frmGenerator
         Me.Panel2.Controls.Add(Me.lstFormats)
         Me.Panel2.Location = New System.Drawing.Point(98, 45)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(414, 169)
+        Me.Panel2.Size = New System.Drawing.Size(318, 169)
         Me.Panel2.TabIndex = 26
         '
         'GroupBox1
         '
+        Me.GroupBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox1.Controls.Add(Me.Panel2)
         Me.GroupBox1.Controls.Add(Me.txtFormat)
         Me.GroupBox1.Controls.Add(Me.Panel1)
         Me.GroupBox1.Controls.Add(Me.btnSaveFormat)
         Me.GroupBox1.Location = New System.Drawing.Point(288, 27)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(518, 218)
+        Me.GroupBox1.Size = New System.Drawing.Size(422, 218)
         Me.GroupBox1.TabIndex = 27
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Formatting"
         '
         'cmbCustom
         '
+        Me.cmbCustom.Controls.Add(Me.btnAddSize)
+        Me.cmbCustom.Controls.Add(Me.btnAddManufacturer)
+        Me.cmbCustom.Controls.Add(Me.btnAddClassID)
+        Me.cmbCustom.Controls.Add(Me.btnAddClass)
+        Me.cmbCustom.Controls.Add(Me.btnAddMaterial)
+        Me.cmbCustom.Controls.Add(Me.cmbPredefined)
+        Me.cmbCustom.Controls.Add(Me.Label12)
         Me.cmbCustom.Controls.Add(Me.Label6)
+        Me.cmbCustom.Controls.Add(Me.btnAddPredefined)
         Me.cmbCustom.Controls.Add(Me.cmbMaterial)
         Me.cmbCustom.Controls.Add(Me.Label8)
         Me.cmbCustom.Controls.Add(Me.Label3)
@@ -335,15 +360,96 @@ Partial Class frmGenerator
         Me.cmbCustom.Controls.Add(Me.txtName)
         Me.cmbCustom.Location = New System.Drawing.Point(12, 27)
         Me.cmbCustom.Name = "cmbCustom"
-        Me.cmbCustom.Size = New System.Drawing.Size(270, 264)
+        Me.cmbCustom.Size = New System.Drawing.Size(270, 316)
         Me.cmbCustom.TabIndex = 28
         Me.cmbCustom.TabStop = False
         Me.cmbCustom.Text = "Part Information"
         '
+        'btnAddSize
+        '
+        Me.btnAddSize.Image = Global.Inventor_Part_Name_Generator.My.Resources.Resources.Add_thin_10x_16x
+        Me.btnAddSize.Location = New System.Drawing.Point(246, 284)
+        Me.btnAddSize.Name = "btnAddSize"
+        Me.btnAddSize.Size = New System.Drawing.Size(21, 21)
+        Me.btnAddSize.TabIndex = 26
+        Me.btnAddSize.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnAddSize.UseVisualStyleBackColor = True
+        '
+        'btnAddManufacturer
+        '
+        Me.btnAddManufacturer.Image = Global.Inventor_Part_Name_Generator.My.Resources.Resources.Add_thin_10x_16x
+        Me.btnAddManufacturer.Location = New System.Drawing.Point(246, 243)
+        Me.btnAddManufacturer.Name = "btnAddManufacturer"
+        Me.btnAddManufacturer.Size = New System.Drawing.Size(21, 21)
+        Me.btnAddManufacturer.TabIndex = 25
+        Me.btnAddManufacturer.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnAddManufacturer.UseVisualStyleBackColor = True
+        '
+        'btnAddClassID
+        '
+        Me.btnAddClassID.Image = Global.Inventor_Part_Name_Generator.My.Resources.Resources.Add_thin_10x_16x
+        Me.btnAddClassID.Location = New System.Drawing.Point(246, 204)
+        Me.btnAddClassID.Name = "btnAddClassID"
+        Me.btnAddClassID.Size = New System.Drawing.Size(21, 21)
+        Me.btnAddClassID.TabIndex = 24
+        Me.btnAddClassID.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnAddClassID.UseVisualStyleBackColor = True
+        '
+        'btnAddClass
+        '
+        Me.btnAddClass.Image = Global.Inventor_Part_Name_Generator.My.Resources.Resources.Add_thin_10x_16x
+        Me.btnAddClass.Location = New System.Drawing.Point(246, 163)
+        Me.btnAddClass.Name = "btnAddClass"
+        Me.btnAddClass.Size = New System.Drawing.Size(21, 21)
+        Me.btnAddClass.TabIndex = 23
+        Me.btnAddClass.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnAddClass.UseVisualStyleBackColor = True
+        '
+        'btnAddMaterial
+        '
+        Me.btnAddMaterial.Image = Global.Inventor_Part_Name_Generator.My.Resources.Resources.Add_thin_10x_16x
+        Me.btnAddMaterial.Location = New System.Drawing.Point(246, 124)
+        Me.btnAddMaterial.Name = "btnAddMaterial"
+        Me.btnAddMaterial.Size = New System.Drawing.Size(21, 21)
+        Me.btnAddMaterial.TabIndex = 22
+        Me.btnAddMaterial.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnAddMaterial.UseVisualStyleBackColor = True
+        '
+        'cmbPredefined
+        '
+        Me.cmbPredefined.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cmbPredefined.FormattingEnabled = True
+        Me.cmbPredefined.Items.AddRange(New Object() {"N/A", "Aluminum", "Steel", "Stainless Steel", "Spring Steel", "Cast Iron"})
+        Me.cmbPredefined.Location = New System.Drawing.Point(9, 84)
+        Me.cmbPredefined.Name = "cmbPredefined"
+        Me.cmbPredefined.Size = New System.Drawing.Size(234, 21)
+        Me.cmbPredefined.TabIndex = 19
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Location = New System.Drawing.Point(6, 68)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(58, 13)
+        Me.Label12.TabIndex = 20
+        Me.Label12.Text = "Predefined"
+        '
+        'btnAddPredefined
+        '
+        Me.btnAddPredefined.Image = Global.Inventor_Part_Name_Generator.My.Resources.Resources.Add_thin_10x_16x
+        Me.btnAddPredefined.Location = New System.Drawing.Point(246, 84)
+        Me.btnAddPredefined.Name = "btnAddPredefined"
+        Me.btnAddPredefined.Size = New System.Drawing.Size(21, 21)
+        Me.btnAddPredefined.TabIndex = 21
+        Me.btnAddPredefined.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnAddPredefined.UseVisualStyleBackColor = True
+        '
         'Label11
         '
+        Me.Label11.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(18, 295)
+        Me.Label11.Location = New System.Drawing.Point(6, 11)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(99, 13)
         Me.Label11.TabIndex = 23
@@ -351,18 +457,17 @@ Partial Class frmGenerator
         '
         'cmbExtra
         '
-        Me.cmbExtra.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cmbExtra.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.cmbExtra.FormattingEnabled = True
         Me.cmbExtra.Items.AddRange(New Object() {"N/A", "471", "472", "6799"})
-        Me.cmbExtra.Location = New System.Drawing.Point(21, 311)
+        Me.cmbExtra.Location = New System.Drawing.Point(9, 27)
         Me.cmbExtra.Name = "cmbExtra"
         Me.cmbExtra.Size = New System.Drawing.Size(251, 21)
         Me.cmbExtra.TabIndex = 22
         '
         'DateTimePicker1
         '
-        Me.DateTimePicker1.Location = New System.Drawing.Point(288, 312)
+        Me.DateTimePicker1.Location = New System.Drawing.Point(294, 312)
         Me.DateTimePicker1.Name = "DateTimePicker1"
         Me.DateTimePicker1.Size = New System.Drawing.Size(251, 20)
         Me.DateTimePicker1.TabIndex = 21
@@ -370,7 +475,7 @@ Partial Class frmGenerator
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(291, 295)
+        Me.Label2.Location = New System.Drawing.Point(297, 295)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(33, 13)
         Me.Label2.TabIndex = 20
@@ -381,7 +486,7 @@ Partial Class frmGenerator
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.HelpToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(812, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(713, 24)
         Me.MenuStrip1.TabIndex = 30
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -496,34 +601,40 @@ Partial Class frmGenerator
         Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(194, 22)
         Me.AboutToolStripMenuItem.Text = "About"
         '
-        'Button1
+        'Panel3
         '
-        Me.Button1.Location = New System.Drawing.Point(569, 313)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 31
-        Me.Button1.Text = "testLoad"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.Panel3.Controls.Add(Me.Label11)
+        Me.Panel3.Controls.Add(Me.cmbExtra)
+        Me.Panel3.Enabled = False
+        Me.Panel3.Location = New System.Drawing.Point(536, 361)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(270, 59)
+        Me.Panel3.TabIndex = 32
+        Me.Panel3.Visible = False
         '
-        'Button2
+        'chkAutomatic
         '
-        Me.Button2.Location = New System.Drawing.Point(569, 286)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(75, 23)
-        Me.Button2.TabIndex = 32
-        Me.Button2.Text = "testAdd"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.chkAutomatic.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.chkAutomatic.AutoSize = True
+        Me.chkAutomatic.Location = New System.Drawing.Point(584, 326)
+        Me.chkAutomatic.Name = "chkAutomatic"
+        Me.chkAutomatic.Size = New System.Drawing.Size(120, 17)
+        Me.chkAutomatic.TabIndex = 33
+        Me.chkAutomatic.Text = "Automatic Generate"
+        Me.chkAutomatic.UseVisualStyleBackColor = True
+        '
+        'Timer1
+        '
+        Me.Timer1.Interval = 500
         '
         'frmGenerator
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(812, 343)
-        Me.Controls.Add(Me.Button2)
-        Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.Label11)
+        Me.ClientSize = New System.Drawing.Size(713, 349)
+        Me.Controls.Add(Me.chkAutomatic)
+        Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.cmbCustom)
-        Me.Controls.Add(Me.cmbExtra)
         Me.Controls.Add(Me.DateTimePicker1)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Label2)
@@ -545,6 +656,8 @@ Partial Class frmGenerator
         Me.cmbCustom.PerformLayout()
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
+        Me.Panel3.ResumeLayout(False)
+        Me.Panel3.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -597,6 +710,15 @@ Partial Class frmGenerator
     Friend WithEvents cmbExtra As ComboBox
     Friend WithEvents GenerationLogsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents HotkeysToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents Button1 As Button
-    Friend WithEvents Button2 As Button
+    Friend WithEvents cmbPredefined As ComboBox
+    Friend WithEvents Label12 As Label
+    Friend WithEvents Panel3 As Panel
+    Friend WithEvents btnAddPredefined As Button
+    Friend WithEvents btnAddSize As Button
+    Friend WithEvents btnAddManufacturer As Button
+    Friend WithEvents btnAddClassID As Button
+    Friend WithEvents btnAddClass As Button
+    Friend WithEvents btnAddMaterial As Button
+    Friend WithEvents chkAutomatic As CheckBox
+    Friend WithEvents Timer1 As Timer
 End Class
